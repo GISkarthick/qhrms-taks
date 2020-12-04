@@ -45,6 +45,7 @@ const userController = () => {
 			let payload = req.body;
 			payload.password = bcryptService.password(payload.password);
 			let userData = await userModel.create(payload);
+			delete userData.password;
 			return res.status(httpStatus.OK).json({ status: httpStatus.OK, data: userData, msg: "Success" });
 		} catch (err) {
 			console.log("errr===>", err);
