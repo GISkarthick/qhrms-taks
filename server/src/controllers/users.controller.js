@@ -45,6 +45,7 @@ const userController = () => {
 			let payload = req.body;
 			payload.password = bcryptService.password(payload.password);
 			let userData = await userModel.create(payload);
+			userData = JSON.parse(JSON.stringify(userData));
 			delete userData.password;
 			return res.status(httpStatus.OK).json({ status: httpStatus.OK, data: userData, msg: "Success" });
 		} catch (err) {
@@ -63,12 +64,10 @@ const userController = () => {
 				throw errors.array();
 			}
 			let payload = req.body;
-			let query = {
-				email: payload.email
-			}
+			let query = { "$or": [ {email: payload.email}, {mobile: payload.email} ] };
 			let userData = await userModel.findOne(query).lean();
-			delete userData.password;
 			if (userData && bcryptService.comparePassword(payload.password, userData.password) ) {
+				delete userData.password;
 				return res.status(httpStatus.OK).json({ status: httpStatus.OK, data: userData, msg: "Success" });
 			} else {
 				return res.status(httpStatus.UNAUTHORIZED).json({ status: httpStatus.UNAUTHORIZED, msg: "Invalid credentials" });

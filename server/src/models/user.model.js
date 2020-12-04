@@ -2,7 +2,8 @@ import mongoose from 'mongoose'
 // job trigger history table Schema
 const userSchema = new mongoose.Schema({
     name: { type: String },
-    email: { type: String },
+    email: { type: String, unique: true },
+    mobile: { type: String, unique: true },
     password: { type: String},
     role: { type: String},
     createdBy: { type: String},
