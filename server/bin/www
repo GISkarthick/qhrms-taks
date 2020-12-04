@@ -1,0 +1,768 @@
+#!/usr/bin/env node
+
+/**
+ * Module dependencies.
+ */
+
+import app from '../index';
+import http from 'http';
+
+/**
+ * Get port from environment and store in Express.
+ */
+
+const port = normalizePort(process.env.PORT || '4000');
+app.set('port', port);
+
+/**
+ * Create HTTP server.
+ */
+
+const server = http.createServer(app);
+
+/**
+ * Listen on provided port, on all network interfaces.
+ */
+
+function form1 () {
+    setTimeout(() => {
+        const VendorRequest = require("./VendorRequest");
+        
+        let body = {
+        "event_id": "01EN3G6MSA5RR7C75N4WMYNVV6",
+        "event_type": "form_response",
+        "form_response": {
+            "form_id": "NP4b8xdA",
+            "token": "aqdkm3qxtskd8f1d96utnaqdkm3q705u",
+            "landed_at": "2020-10-20T17:15:05Z",
+            "submitted_at": "2020-10-20T17:16:41Z",
+            "definition": {
+            "id": "NP4b8xdA",
+            "title": "Inbound leads (vendors) qualification form",
+            "fields": [
+                {
+                "id": "7LC7dT2U0nkx",
+                "title": "What's your name?",
+                "type": "short_text",
+                "ref": "7b621579-931b-401b-88c0-43e121c0c896",
+                "properties": {}
+                },
+                {
+                "id": "vJRBIxzIdJkK",
+                "title": "Company name?",
+                "type": "short_text",
+                "ref": "bb2d4c03-729d-4fba-91ee-510039daca4c",
+                "properties": {}
+                },
+                {
+                "id": "GRYWEs1w8PI3",
+                "title": "What is your website url? (if there's any)",
+                "type": "website",
+                "ref": "75f56350-fd9b-4a55-87eb-a9fb91ff9ef1",
+                "properties": {}
+                },
+                {
+                "id": "8jvq88dboV2z",
+                "title": "{{field:7b621579-931b-401b-88c0-43e121c0c896}}, what is your email address?",
+                "type": "email",
+                "ref": "923eb6ac-147b-4ed4-b00a-e9a1216c2e96",
+                "properties": {}
+                },
+                {
+                "id": "VY2hNtpqSJj9",
+                "title": "What about your phone number?",
+                "type": "phone_number",
+                "ref": "3ea04b36-1218-4ebd-b9d1-ecd42acf1768",
+                "properties": {}
+                },
+                {
+                "id": "Hs25Mslnwu1E",
+                "title": "Could you please share your company's registered name?",
+                "type": "short_text",
+                "ref": "8e396dda-2622-4148-8a6f-579c605cc9f4",
+                "properties": {}
+                },
+                {
+                "id": "IRU35UJDollU",
+                "title": "{{field:7b621579-931b-401b-88c0-43e121c0c896}}, what is your position at {{field:bb2d4c03-729d-4fba-91ee-510039daca4c}}?",
+                "type": "short_text",
+                "ref": "3030d501-1a2c-48ac-8ff9-19f8b22bc756",
+                "properties": {}
+                },
+                {
+                "id": "xEJ4F3AarrXZ",
+                "title": "Please choose all the services you do",
+                "type": "multiple_choice",
+                "allow_multiple_selections": true,
+                "ref": "a7536072-5657-40d0-a8d1-d553510ae377",
+                "properties": {},
+                "choices": [
+                    {
+                    "id": "X6HWoO0LK9Lm",
+                    "label": "Market Research & Validation"
+                    },
+                    {
+                    "id": "EWRbxtdf9Dda",
+                    "label": "Lead generation"
+                    },
+                    {
+                    "id": "0dPdv01k4hQk",
+                    "label": "Business Match making"
+                    },
+                    {
+                    "id": "5NySfHw5t0cf",
+                    "label": "Business Incorporation"
+                    },
+                    {
+                    "id": "DIhh1Tv46ocT",
+                    "label": "Corporate Secretarial"
+                    },
+                    {
+                    "id": "p57sXH5blouM",
+                    "label": "Director Services"
+                    },
+                    {
+                    "id": "IstczfsoXu9P",
+                    "label": "Payroll Services"
+                    },
+                    {
+                    "id": "4y8e2LdOf0RL",
+                    "label": "Accounting"
+                    },
+                    {
+                    "id": "klNMTnemRnEN",
+                    "label": "Registered Business Address"
+                    },
+                    {
+                    "id": "RLN9bjabzUNZ",
+                    "label": "Tax Filling Assistance"
+                    },
+                    {
+                    "id": "Syc3K4O0Yqhd",
+                    "label": "Visa Application"
+                    },
+                    {
+                    "id": "kCG8iI1vJa9A",
+                    "label": "Bank Account Assistance"
+                    }
+                ]
+                },
+                {
+                "id": "W2a8AwGiKfm3",
+                "title": "Please click on all markets {{field:bb2d4c03-729d-4fba-91ee-510039daca4c}} is currently covering?",
+                "type": "multiple_choice",
+                "allow_multiple_selections": true,
+                "allow_other_choice": true,
+                "ref": "61081bbf-13c4-49b1-a112-848df5d76f09",
+                "properties": {},
+                "choices": [
+                    {
+                    "id": "Ag2h1l8XBpWi",
+                    "label": "Singapore"
+                    },
+                    {
+                    "id": "Yqou14dxAqj6",
+                    "label": "Indonesia"
+                    },
+                    {
+                    "id": "aROOB46v1mNf",
+                    "label": "Vietnam"
+                    },
+                    {
+                    "id": "65zcUXdyXFjd",
+                    "label": "the Philippines"
+                    },
+                    {
+                    "id": "4VmjQGI8jXCz",
+                    "label": "Thailand"
+                    },
+                    {
+                    "id": "dA4SQPuS8ZYC",
+                    "label": "Myanmar"
+                    },
+                    {
+                    "id": "qaXugnpR3f7T",
+                    "label": "Laos"
+                    },
+                    {
+                    "id": "YjmMeCpD5fQZ",
+                    "label": "Cambodia"
+                    },
+                    {
+                    "id": "J0YRNaABOP5b",
+                    "label": "Hong Kong"
+                    },
+                    {
+                    "id": "tJXVjtOb4MKq",
+                    "label": "India"
+                    },
+                    {
+                    "id": "Zw3afQjXcWHG",
+                    "label": "Australia"
+                    },
+                    {
+                    "id": "6HViSKzhiGyF",
+                    "label": "China"
+                    },
+                    {
+                    "id": "NgeAo8oPy8LP",
+                    "label": "South Korea"
+                    }
+                ]
+                },
+                {
+                "id": "d4YM1xoJRCyn",
+                "title": "In which Country is {{field:bb2d4c03-729d-4fba-91ee-510039daca4c}}\nheadquartered?",
+                "type": "dropdown",
+                "ref": "f98452ff-1555-445d-be85-26f285ed987d",
+                "properties": {}
+                },
+                {
+                "id": "ATeCu7nux8A4",
+                "title": "How large is your team?",
+                "type": "number",
+                "ref": "4188a4f1-6f7a-4f0d-b58d-b73bf0c3a5ec",
+                "properties": {}
+                },
+                {
+                "id": "HZp1TCJbDlDo",
+                "title": "When was {{field:bb2d4c03-729d-4fba-91ee-510039daca4c}} incorporated?",
+                "type": "date",
+                "ref": "06d67db3-94aa-48e4-90b6-e6d7b17a858b",
+                "properties": {}
+                },
+                {
+                "id": "UWArt76Ds7Lh",
+                "title": "How many clients have you serviced in the past year?",
+                "type": "number",
+                "ref": "9c08fd3a-7c4e-4127-930a-737d0b92aded",
+                "properties": {}
+                }
+            ]
+            },
+            "answers": [
+            {
+                "type": "text",
+                "text": "test",
+                "field": {
+                "id": "7LC7dT2U0nkx",
+                "type": "short_text",
+                "ref": "7b621579-931b-401b-88c0-43e121c0c896"
+                }
+            },
+            {
+                "type": "text",
+                "text": "test",
+                "field": {
+                "id": "vJRBIxzIdJkK",
+                "type": "short_text",
+                "ref": "bb2d4c03-729d-4fba-91ee-510039daca4c"
+                }
+            },
+            {
+                "type": "url",
+                "url": "https://www.google.com",
+                "field": {
+                "id": "GRYWEs1w8PI3",
+                "type": "website",
+                "ref": "75f56350-fd9b-4a55-87eb-a9fb91ff9ef1"
+                }
+            },
+            {
+                "type": "email",
+                "email": "test@test.com",
+                "field": {
+                "id": "8jvq88dboV2z",
+                "type": "email",
+                "ref": "923eb6ac-147b-4ed4-b00a-e9a1216c2e96"
+                }
+            },
+            {
+                "type": "phone_number",
+                "phone_number": "+658145444557",
+                "field": {
+                "id": "VY2hNtpqSJj9",
+                "type": "phone_number",
+                "ref": "3ea04b36-1218-4ebd-b9d1-ecd42acf1768"
+                }
+            },
+            {
+                "type": "text",
+                "text": "ABC",
+                "field": {
+                "id": "Hs25Mslnwu1E",
+                "type": "short_text",
+                "ref": "8e396dda-2622-4148-8a6f-579c605cc9f4"
+                }
+            },
+            {
+                "type": "text",
+                "text": "Dev",
+                "field": {
+                "id": "IRU35UJDollU",
+                "type": "short_text",
+                "ref": "3030d501-1a2c-48ac-8ff9-19f8b22bc756"
+                }
+            },
+            {
+                "type": "choices",
+                "choices": {
+                "labels": [
+                    "Market Research & Validation",
+                    "Business Incorporation",
+                    "Director Services"
+                ]
+                },
+                "field": {
+                "id": "xEJ4F3AarrXZ",
+                "type": "multiple_choice",
+                "ref": "a7536072-5657-40d0-a8d1-d553510ae377"
+                }
+            },
+            {
+                "type": "choices",
+                "choices": {
+                "labels": [
+                    "Indonesia",
+                    "Myanmar"
+                ]
+                },
+                "field": {
+                "id": "W2a8AwGiKfm3",
+                "type": "multiple_choice",
+                "ref": "61081bbf-13c4-49b1-a112-848df5d76f09"
+                }
+            },
+            {
+                "type": "choice",
+                "choice": {
+                "label": "India"
+                },
+                "field": {
+                "id": "d4YM1xoJRCyn",
+                "type": "dropdown",
+                "ref": "f98452ff-1555-445d-be85-26f285ed987d"
+                }
+            },
+            {
+                "type": "number",
+                "number": 20,
+                "field": {
+                "id": "ATeCu7nux8A4",
+                "type": "number",
+                "ref": "4188a4f1-6f7a-4f0d-b58d-b73bf0c3a5ec"
+                }
+            },
+            {
+                "type": "date",
+                "date": "1993-10-02",
+                "field": {
+                "id": "HZp1TCJbDlDo",
+                "type": "date",
+                "ref": "06d67db3-94aa-48e4-90b6-e6d7b17a858b"
+                }
+            },
+            {
+                "type": "number",
+                "number": 100,
+                "field": {
+                "id": "UWArt76Ds7Lh",
+                "type": "number",
+                "ref": "9c08fd3a-7c4e-4127-930a-737d0b92aded"
+                }
+            }
+            ]
+        }
+        }
+
+        var existDoc = new VendorRequest({
+            form_id: body.form_response.form_id,
+            event_id: body.event_id,
+            landed_at: body.form_response.landed_at,
+            submitted_at: body.form_response.submitted_at,
+        });
+        
+        body.form_response.definition.fields.forEach(function (element, i) {
+        var ans = body.form_response.answers.find((elm) => {
+            return elm.field.id === element.id;
+        });
+        
+        switch (element.id) {
+            case "7LC7dT2U0nkx":
+            existDoc.name = ans.text;
+            break;
+            case "8jvq88dboV2z":
+            existDoc.email = ans.email;
+            break;
+            case "vJRBIxzIdJkK":
+            existDoc.company_name = ans.text;
+            break;
+            case "VY2hNtpqSJj9":
+            existDoc.phone = ans.phone_number;
+            break;
+            case "Hs25Mslnwu1E":
+            existDoc.registered_name = ans.text;
+            break;
+            case "IRU35UJDollU":
+            existDoc.position = ans.text;
+            break;
+            case "d4YM1xoJRCyn":
+            existDoc.hq = ans.choice.label;
+            break;
+            case "ATeCu7nux8A4":
+            existDoc.team_size = ans.number;
+            break;
+            case "GRYWEs1w8PI3":
+            existDoc.website = ans.url;
+            break;
+            case "xEJ4F3AarrXZ":
+            existDoc.services = ans.choices.labels;
+            break;
+            case "W2a8AwGiKfm3":
+            existDoc.countries = ans.choices.labels;
+            break;
+            case "UWArt76Ds7Lh":
+            existDoc.clients_served = ans.number;
+            break;
+            case "HZp1TCJbDlDo":
+            existDoc.incorporation = ans.date;
+            break;
+            default:
+        }
+        });
+        
+        existDoc.save(function (err) {
+        if (err) {
+            throw err;
+        }
+        console.log("INSERTED!");
+        console.log("existDoc------");
+        });
+    }, 2000);
+}
+
+function form2 () {
+    setTimeout(async () => {
+        const VendorRequest = require("./VendorRequest");
+        const _ = require("lodash");
+        
+        let body = {
+            "event_id": "01ENJ7QZGKXENSK2XB2B426573",
+            "event_type": "form_response",
+            "form_response": {
+              "form_id": "F7gd0Q",
+              "token": "60j1h155m3je5ah7mb60j1hbwnxm3ixz",
+              "landed_at": "2020-10-26T10:36:13Z",
+              "submitted_at": "2020-10-26T10:37:28Z",
+              "hidden": {
+                "event_id": "01EN3G6MSA5RR7C75N4WMYNVV6"
+              },
+              "definition": {
+                "id": "F7gd0Q",
+                "title": "Greenhouse T&C Acceptance (Automation)",
+                "fields": [
+                  {
+                    "id": "qgfUBy3QVkpb",
+                    "title": "Please provide your given name(s)",
+                    "type": "short_text",
+                    "ref": "95098612-a7ef-42dd-b896-90f1f7e2cdfe",
+                    "properties": {}
+                  },
+                  {
+                    "id": "vT6xfP6mSdrX",
+                    "title": "Please provide your surname",
+                    "type": "short_text",
+                    "ref": "dba18d60-1103-4e1d-90ca-b52e6ce4d692",
+                    "properties": {}
+                  },
+                  {
+                    "id": "RVymu8vmG5gB",
+                    "title": "Please indicate the Legal Entity Name of the company you represent",
+                    "type": "short_text",
+                    "ref": "4c33f7ec-3568-4555-952e-dfd991666128",
+                    "properties": {}
+                  },
+                  {
+                    "id": "gpfjMc2kmHaZ",
+                    "title": "Please provide your Business Registration Number of the company you represent",
+                    "type": "short_text",
+                    "ref": "ba39ecbf-6c0a-4156-9c42-16d3dca727c0",
+                    "properties": {}
+                  },
+                  {
+                    "id": "kCWuYGuOyz5K",
+                    "title": "Please provide the date of incorporation for your business",
+                    "type": "date",
+                    "ref": "6ed00a60-a364-43c4-ac18-3bc51f0b932d",
+                    "properties": {}
+                  },
+                  {
+                    "id": "qA1T37ghzXkI",
+                    "title": "Please indicate the Brand Name of the company you represent (if different from the Legal Entity Name)",
+                    "type": "short_text",
+                    "ref": "a0bcd493-91af-4c63-80fe-91b185d535f6",
+                    "properties": {}
+                  },
+                  {
+                    "id": "HTgEKps2LL2R",
+                    "title": "Please provide your company email ",
+                    "type": "email",
+                    "ref": "831f11af-54ef-4685-9e2c-f68993faf40c",
+                    "properties": {}
+                  },
+                  {
+                    "id": "GJuKCc4YpNxV",
+                    "title": "Please confirm if this is your number",
+                    "type": "phone_number",
+                    "ref": "e9b88add-1d58-4e64-9641-67db22eb7931",
+                    "properties": {}
+                  },
+                  {
+                    "id": "QA9mVMFOWHxh",
+                    "title": "Please indicate today's date",
+                    "type": "date",
+                    "ref": "bf835400-a91f-433c-9679-23dbdf87590a",
+                    "properties": {}
+                  },
+                  {
+                    "id": "uDm5ak9P1YvK",
+                    "title": "Please upload the Updated Greenhouse Terms and Conditions which you received via email",
+                    "type": "file_upload",
+                    "ref": "1d4fd488-356b-462f-a741-86a96be8836f",
+                    "properties": {}
+                  },
+                  {
+                    "id": "xEc2Woh4m0lz",
+                    "title": "Please choose the answer according to your acceptance of the Terms and Conditions uploaded in Question 5 of this form",
+                    "type": "legal",
+                    "ref": "9de42fc9-b3a1-4e05-b112-5d7debcf4ab9",
+                    "properties": {}
+                  }
+                ]
+              },
+              "answers": [
+                {
+                  "type": "text",
+                  "text": "test by rahul",
+                  "field": {
+                    "id": "qgfUBy3QVkpb",
+                    "type": "short_text",
+                    "ref": "95098612-a7ef-42dd-b896-90f1f7e2cdfe"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": "test by rahul",
+                  "field": {
+                    "id": "vT6xfP6mSdrX",
+                    "type": "short_text",
+                    "ref": "dba18d60-1103-4e1d-90ca-b52e6ce4d692"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": "test by rahul",
+                  "field": {
+                    "id": "RVymu8vmG5gB",
+                    "type": "short_text",
+                    "ref": "4c33f7ec-3568-4555-952e-dfd991666128"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": "test by rahul",
+                  "field": {
+                    "id": "gpfjMc2kmHaZ",
+                    "type": "short_text",
+                    "ref": "ba39ecbf-6c0a-4156-9c42-16d3dca727c0"
+                  }
+                },
+                {
+                  "type": "date",
+                  "date": "2004-10-12",
+                  "field": {
+                    "id": "kCWuYGuOyz5K",
+                    "type": "date",
+                    "ref": "6ed00a60-a364-43c4-ac18-3bc51f0b932d"
+                  }
+                },
+                {
+                  "type": "text",
+                  "text": "test by rahul",
+                  "field": {
+                    "id": "qA1T37ghzXkI",
+                    "type": "short_text",
+                    "ref": "a0bcd493-91af-4c63-80fe-91b185d535f6"
+                  }
+                },
+                {
+                  "type": "email",
+                  "email": "rahul.vr@greenhouse.co",
+                  "field": {
+                    "id": "HTgEKps2LL2R",
+                    "type": "email",
+                    "ref": "831f11af-54ef-4685-9e2c-f68993faf40c"
+                  }
+                },
+                {
+                  "type": "phone_number",
+                  "phone_number": "+918129220033",
+                  "field": {
+                    "id": "GJuKCc4YpNxV",
+                    "type": "phone_number",
+                    "ref": "e9b88add-1d58-4e64-9641-67db22eb7931"
+                  }
+                },
+                {
+                  "type": "date",
+                  "date": "2007-12-25",
+                  "field": {
+                    "id": "QA9mVMFOWHxh",
+                    "type": "date",
+                    "ref": "bf835400-a91f-433c-9679-23dbdf87590a"
+                  }
+                },
+                {
+                  "type": "file_url",
+                  "file_url": "https://api.typeform.com/responses/files/826935dd7ff287d5b3701bb2e15e5f50ae6a4e34c93853ed305df99b3aa69606/GH_Service_Agreement_GHSA_I_2020.FTC.pdf",
+                  "field": {
+                    "id": "uDm5ak9P1YvK",
+                    "type": "file_upload",
+                    "ref": "1d4fd488-356b-462f-a741-86a96be8836f"
+                  }
+                },
+                {
+                  "type": "boolean",
+                  "boolean": true,
+                  "field": {
+                    "id": "xEc2Woh4m0lz",
+                    "type": "legal",
+                    "ref": "9de42fc9-b3a1-4e05-b112-5d7debcf4ab9"
+                  }
+                }
+              ]
+            }
+          }
+        
+          try {
+            let existDoc = await VendorRequest.findOne(
+              { event_id: body.form_response.hidden.event_id },
+            //   {lean: true}
+            );
+            // let existDoc = {};
+            console.log("existDoc---------",existDoc);
+            let ansMap = _.keyBy(body.form_response.answers, 'field.id');
+            body.form_response.definition.fields.forEach(function (qus) {
+              switch (qus.id) {
+                case "qgfUBy3QVkpb":
+                  existDoc.given_name = ansMap[qus.id].text;
+                  break;
+                case "vT6xfP6mSdrX":
+                  existDoc.surname = ansMap[qus.id].text;
+                  break;
+                case "RVymu8vmG5gB":
+                  existDoc.company_legal_entity_name = ansMap[qus.id].text;
+                  break;
+                case "gpfjMc2kmHaZ":
+                  existDoc.company_registration_number = ansMap[qus.id].text;
+                  break;
+                case "kCWuYGuOyz5K":
+                  existDoc.incorporation_date = ansMap[qus.id].date;
+                  break;
+                case "qA1T37ghzXkI":
+                  existDoc.company_brand_name = ansMap[qus.id].text;
+                  break;
+                case "HTgEKps2LL2R":
+                  existDoc.company_email = ansMap[qus.id].email;
+                  break;
+                case "GJuKCc4YpNxV":
+                  existDoc.confirm_number = ansMap[qus.id].phone_number;
+                  break;
+                case "kCWuYGuOyz5K":
+                  existDoc.todays_date = ansMap[qus.id].date;
+                  break;
+                case "uDm5ak9P1YvK":
+                  existDoc.terms_and_conditions_file = ansMap[qus.id].file_url;
+                  break;
+                case "xEc2Woh4m0lz":
+                  existDoc.terms_and_conditions_acceptance = ansMap[qus.id].boolean;
+                default:
+              }
+            });
+            existDoc.form2_raw = body;
+        
+            existDoc = new VendorRequest(existDoc);
+            await existDoc.save(); 
+            console.log("existDoc------",existDoc);
+        } catch (error) {
+            console.log("error------",error);
+        }
+    }, 2000);
+}
+// form1();
+// form2();
+
+server.listen(port);
+server.on('error', onError);
+server.on('listening', onListening);
+
+/**
+ * Normalize a port into a number, string, or false.
+ */
+
+function normalizePort(val) {
+    const port = parseInt(val, 10);
+
+    if (isNaN(port)) {
+        // named pipe
+        return val;
+    }
+
+    if (port >= 0) {
+        // port number
+        return port;
+    }
+
+    return false;
+}
+
+/**
+ * Event listener for HTTP server "error" event.
+ */
+
+function onError(error) {
+    if (error.syscall !== 'listen') {
+        throw error;
+    }
+
+    var bind = typeof port === 'string'
+        ? 'Pipe ' + port
+        : 'Port ' + port;
+
+    // handle specific listen errors with friendly messages
+    switch (error.code) {
+        case 'EACCES':
+            console.error(bind + ' requires elevated privileges');
+            process.exit(1);
+            break;
+        case 'EADDRINUSE':
+            console.error(bind + ' is already in use');
+            process.exit(1);
+            break;
+        default:
+            throw error;
+    }
+}
+
+/**
+ * Event listener for HTTP server "listening" event.
+ */
+const debug = require('debug')('qhrms:server');
+function onListening() {
+    var addr = server.address();
+    var bind = typeof addr === 'string'
+        ? 'pipe ' + addr
+        : 'port ' + addr.port;
+    debug('Listening on ' + bind);
+    console.log("Listing on port:",addr.port);
+}
