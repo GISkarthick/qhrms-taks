@@ -2,11 +2,11 @@ import React, {useState} from "react";
 import { authenticationService } from "../services";
 import logo from '../assets/images/hrm_logo.png';
 import { Form, Button, InputGroup, FormControl } from "react-bootstrap";
-import qhrm from '../assets/images/hrm_login_image.png';
 import { isRequired } from '../utils/Validations'
 import {Footer} from '../components'
+import {LeftLayout} from '../components'
 import { history } from "../utils/history";
-import {isEmpty, cloneDeep} from 'lodash'
+import {isEmpty, cloneDeep} from 'lodash';
 
 import {CONSTANTS} from '../config/Constants';
 
@@ -30,7 +30,8 @@ const initialValue = {
   
 
   export const Login = () => {
-  
+    const [show, setShow] = useState(false);
+
     const [formValue, setFormValue] = useState(initialValue)
     const [errors, setErrors] = useState({})
 
@@ -104,15 +105,8 @@ const initialValue = {
 
     return (
       <div className="row login_block">
-        <div className="login_left col-md-5">
-          <h3>{CONSTANTS.LOGIN.title}</h3>
-          <p>
-            {CONSTANTS.LOGIN.SUB_TITLE}
-          </p>
-          <span className="Qhrm_image">
-            <img src={qhrm} alt="hrmimage" />
-          </span>
-        </div>
+        
+ <LeftLayout />
         <div className="login_right col-md-7">
           <Form className="login_form">
             <img src={logo} className="mb-3" alt="logo" />
@@ -154,7 +148,7 @@ const initialValue = {
               />
               {!isView ?
                 <i className="fa fa-eye eye-icon" aria-hidden="true" onClick={() => setView(true)}></i> : 
-                <i className="fa fa-eye-slash" aria-hidden="true" onClick={() => setView(false)}></i>
+                <i className="fa fa-eye-slash eye-icon" aria-hidden="true" onClick={() => setView(false)}></i>
               }
 
               {errors.password && (
@@ -186,10 +180,10 @@ const initialValue = {
             
             {isForgotPass &&
               <>
-              <Button variant="primary" type="submit" onClick={handleSend}>
+              <Button variant="primary" type="submit" className="mt-3" onClick={handleSend}>
                 {CONSTANTS.LOGIN.SEND}
               </Button>
-              <p onClick={() => setForgotPass(false)}>Back to Login</p>
+              <p className="link_text text-center" onClick={() => setForgotPass(false)}><i class="fa fa-arrow-left" aria-hidden="true"></i> Login</p>
               </>
             }
             
