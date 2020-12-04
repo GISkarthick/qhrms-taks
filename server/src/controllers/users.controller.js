@@ -15,7 +15,6 @@ const userController = () => {
 				throw errors.array();
 			}
 			let userInput = req.query;
-			console.log("userInput-------userInput",userInput)
 			let query = {isDeleted: false};
 			if (userInput._id || userInput.userId) {
 				query._id = userInput._id || userInput.userId;
@@ -67,8 +66,6 @@ const userController = () => {
 				email: payload.email
 			}
 			let userData = await userModel.findOne(query).lean();
-			console.log("userData-----",userData);
-			console.log("bcryptService----------",bcryptService.comparePassword(payload.password, userData.password));
 			delete userData.password;
 			if (userData && bcryptService.comparePassword(payload.password, userData.password) ) {
 				return res.status(httpStatus.OK).json({ status: httpStatus.OK, data: userData, msg: "Success" });
@@ -101,8 +98,6 @@ const userController = () => {
 
 			if (userData) {
 
-				console.log("userData------forgotPassword1",userData);
-
 				let htmlTemplate = "<tr>" +
 					"<td>" +
 						"<p>"+ "Hi, " + userData.name + "</p>" +
@@ -116,7 +111,6 @@ const userController = () => {
 
 				return res.status(httpStatus.OK).json({ status: httpStatus.OK, msg: "New password has been sent to you Email" });
 			} else {
-				console.log("userData------forgotPassword2",userData);
 				return res.status(httpStatus.BAD_REQUEST).json({ status: httpStatus.BAD_REQUEST, msg: "Invalid Email ID" });
 			}
 

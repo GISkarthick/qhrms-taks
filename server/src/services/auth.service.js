@@ -2,8 +2,6 @@ import jsonwebtoken from "jsonwebtoken";
 
 import CONFIG from "../../config/config";
 
-// console.log("AUTH----->", config);
-
 const secret = CONFIG.jwtSecret;
 
 const authService = () => {

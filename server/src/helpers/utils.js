@@ -27,12 +27,6 @@ const utils = () => {
 	};
 	
     const mailOptions = (mails, message, subject) => {
-
-		console.log("CONFIG-------",config);	
-
-		console.log("CONFIG.COMMON_EMAIL---------",config.COMMON_EMAIL);
-		console.log("CONFIG.COMMON_PASSWORD---------",config.COMMON_PASSWORD);
-
         let smtpTransport = nodemailer.createTransport({
             service: 'gmail',
             host: "smtp.gmail.com",
