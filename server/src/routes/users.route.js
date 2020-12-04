@@ -25,7 +25,7 @@ router
 	], usersCtrl.resetPassword)
 
 	.post("/deleteUser", [
-		check('_id').not().isEmpty().withMessage('_id is required')
+		check('email').not().isEmpty().withMessage('email is required')
 	], usersCtrl.deleteUser);
 
 export default router;

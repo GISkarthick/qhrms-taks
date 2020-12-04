@@ -6,17 +6,17 @@ import jwt from 'jsonwebtoken';
 const utils = () => {
 
     const createToken = (data) => {
-        let token = jwt.sign(data, CONFIG.jwtSecret, {
-            expiresIn: CONFIG.jwtTokenExpire
+        let token = jwt.sign(data, config.jwtSecret, {
+            expiresIn: config.jwtTokenExpire
         });
-        token = token.replace(/\./g, "ar4Jq1V");
+        // token = token.replace(/\./g, "ar4Jq1V");
         return token;
 	};
 	
     const getUserIdFromToken = (headers) => {
         let token = headers['x-access-token'];
         return new Promise(function (resolve, reject) {
-            jwt.verify(token, CONFIG.jwtSecret, function (err, result) {
+            jwt.verify(token, config.jwtSecret, function (err, result) {
                 if (err) {
                     resolve(err)
                 } else {

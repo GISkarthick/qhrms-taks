@@ -64,10 +64,16 @@ const userController = () => {
 				throw errors.array();
 			}
 			let payload = req.body;
-			let query = { "$or": [ {email: payload.email}, {mobile: payload.email} ] };
+			let query = { "$and":
+				[
+					{ isDeleted: false, isActive: true },
+					{ "$or": [ {email: payload.email}, {mobile: payload.email} ] }
+				]
+			};
 			let userData = await userModel.findOne(query).lean();
 			if (userData && bcryptService.comparePassword(payload.password, userData.password) ) {
 				delete userData.password;
+				userData.token = utils.createToken(userData);
 				return res.status(httpStatus.OK).json({ status: httpStatus.OK, data: userData, msg: "Success" });
 			} else {
 				return res.status(httpStatus.UNAUTHORIZED).json({ status: httpStatus.UNAUTHORIZED, msg: "Invalid credentials" });
@@ -91,7 +97,7 @@ const userController = () => {
 			const payload = req.body;
 			const newPass = generatePassword(12, false);
 			let userData = await userModel.findOneAndUpdate(
-				{ email: payload.email}, 
+				{ email: payload.email, isDeleted: false, isActive: true }, 
 				{ $set: { password: bcryptService.password(newPass) } },
 				{ new: true, setDefaultsOnInsert: true, runValidators: true }
 			);
@@ -131,14 +137,12 @@ const userController = () => {
 				throw errors.array();
 			}
 			
-			let payload = req.body;
-			let userData = await userModel.findOneAndUpdate(
-				{ _id: payload._id }, 
-				{ $set: { isDeleted: true, isActive: false } },
-				{ new: true, setDefaultsOnInsert: true, runValidators: true }
+			const payload = req.body;
+			await userModel.remove(
+				{ email: payload.email }
 			);
             
-			return res.status(httpStatus.OK).json({ status: httpStatus.OK, data: userData, msg: "Success" });
+			return res.status(httpStatus.OK).json({ status: httpStatus.OK, msg: "Success" });
 			
 		} catch (err) {
 			console.log("errr===>", err);

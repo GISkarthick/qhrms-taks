@@ -2,8 +2,8 @@ import mongoose from 'mongoose'
 // job trigger history table Schema
 const userSchema = new mongoose.Schema({
     name: { type: String },
-    email: { type: String, unique: true },
-    mobile: { type: String, unique: true },
+    email: { type: String },
+    mobile: { type: String },
     password: { type: String},
     role: { type: String},
     createdBy: { type: String},
@@ -14,6 +14,9 @@ const userSchema = new mongoose.Schema({
     isActive: { type: Boolean , default: true },
     isDeleted: { type: Boolean , default: false }
 }, { collection: 'users' });
+
+userSchema.index({ email: 1, isDeleted: 1}, { unique: true });
+userSchema.index({ mobile: 1, isDeleted: 1}, { unique: true });
 
 export default mongoose.model('userModel', userSchema);
 
