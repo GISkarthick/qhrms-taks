@@ -10,6 +10,15 @@
 			"request": {
 				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"stefen\",\n    \"email\": \"arunrajj@outlook.com\",\n    \"password\": \"12345678\",\n    \"role\": \"admin\",\n    \"mobile\": \"9988776633\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
 					"raw": "http://localhost:6001/users/createUser",
 					"protocol": "http",
@@ -32,7 +41,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"email\": \"arun@mail.com\",\n    \"password\": \"12345678123\"\n}",
+					"raw": "{\n    \"email\": \"arunrajj@outlook.com\",\n    \"password\": \"12345678\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
