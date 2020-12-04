@@ -9,10 +9,10 @@ export const Dashboard = () => {
     }
 
     return (
-            <div className="row">
+            <div className="row login_block dashboard_page">
 
                 <LeftLayout />
-                <div className="col-md-7">
+                <div className="login_right col-md-7">
                     <h1>Home</h1>
                     <p>You're logged in with React & JWT!!</p>
                     {/* <p>Your role is: <strong>{currentUser.role}</strong>.</p> */}

@@ -19,7 +19,7 @@ function App() {
               <PublicRoute path="/login" component={Login} />
               <PublicRoute path="/" exact component={Login} />
 
-              <PrivateRoute exact path="/dashboard" component={Dashboard} />
+              <PublicRoute exact path="/dashboard" component={Dashboard} />
               <Route component={NotFoundPage}/>
             </Switch>
           </div>

@@ -7,7 +7,7 @@ import {Footer} from '../components'
 import {LeftLayout} from '../components'
 import { history } from "../utils/history";
 import {isEmpty, cloneDeep} from 'lodash';
-
+import Toast from 'react-bootstrap/Toast'
 import {CONSTANTS} from '../config/Constants';
 
 const initialValue = {
@@ -169,7 +169,20 @@ const initialValue = {
               />
               <span onClick={() => setForgotPass(true)}>{CONSTANTS.LOGIN.FORGOT}</span>
             </div>
-
+  <div
+   
+    className="toaster_block"
+  >
+    <Toast  onClose={() => setShow(false)} show={show} delay={3000} >
+      <Toast.Header>
+        <img src="holder.js/20x20?text=%20" className="rounded mr-2" alt="" />
+        <strong className="mr-auto">Bootstrap</strong>
+        <small>just now</small>
+      </Toast.Header>
+      <Toast.Body>See? Just like this.</Toast.Body>
+    </Toast>
+  </div>
+<Button onClick={() => setShow(true)}>Show Toast</Button>
             <Button variant="primary" type="submit" onClick={handleSubmit}>
                 {CONSTANTS.LOGIN.LOGIN}
             </Button>
