@@ -2,8 +2,9 @@ import axios from "axios";
 import { baseUrl } from "../config";
 import { history } from "../utils/history";
 
+import { toast } from "react-toastify";
 
-var qs = require('qs');
+// var qs = require('qs');
 export const httpServices = {};
 httpServices.get = get;
 httpServices.post = post;
@@ -16,7 +17,6 @@ axios.defaults.headers.common["Access-Control-Allow-Methods"] =
 
 axios.interceptors.response.use(
   function(response) {
-    // debugger
     // console.log(response, "sdsd");
     let data = response.data;
     if(data.status){
@@ -25,6 +25,7 @@ axios.interceptors.response.use(
     }else if(response.headers['content-type'].includes('application/pdf')){
       return Promise.resolve(data);
     }else{
+      debugger
       let error = data.error || data.msg;
       return Promise.reject(error);
     }
@@ -32,20 +33,16 @@ axios.interceptors.response.use(
   },
   function(error) {
     // console.log(error)
-    // debugger
     if (error.request.status === 403) {
-      alert("Token expired")
+      toast.error("Token expired");
       history.push('/login')
       window.location.reload();
     } else if (error.request.status === 401) {
-      // Utils.toastrWarning(error.response.data.message);
-      alert(error.response.data.message);
-      // PubSub.publish("msg", true);
+      // toast.error(error.response.data.msg);
     } else if (error.request.status === 500) {
-      // Utils.toastrError(error.response.data.message);
-      alert(error.response.data.message);
+      toast.error(error.response.data.msg);
     } else {
-      alert("Network connection failed ");
+      toast.error("Network connection failed");
     }
     return Promise.reject(error);
   }
