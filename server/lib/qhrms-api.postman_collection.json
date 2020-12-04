@@ -1,0 +1,70 @@
+{
+	"info": {
+		"_postman_id": "7c7c0187-8c81-4018-a3c9-686a4109d421",
+		"name": "qhrms-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "create user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:6001/users/createUser",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "6001",
+					"path": [
+						"users",
+						"createUser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"arun@mail.com\",\n    \"password\": \"12345678123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:6001/users/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "6001",
+					"path": [
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "reset password",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
