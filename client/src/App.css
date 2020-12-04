@@ -85,6 +85,12 @@
   justify-content: space-between;
   margin-bottom: 25px;
 }
+.keep_login span{
+  color: #007bff;
+  text-decoration: none;
+  background-color: transparent;
+  cursor: pointer;
+}
 .btn-primary:hover, .btn-primary.focus, .btn-primary:focus, .btn-primary:not(:disabled):not(.disabled):active {
   color: #fff;
   background-color: #ca0b5a;
