@@ -1,6 +1,12 @@
 import React from 'react';
 
+import { authenticationService } from "../services";
+
 export const Dashboard = () => {
+
+    const LogoutPage = () =>{
+        authenticationService.logout();
+    }
 
     return (
         <div className="container-fluid">
@@ -8,15 +14,8 @@ export const Dashboard = () => {
             <p>You're logged in with React & JWT!!</p>
             {/* <p>Your role is: <strong>{currentUser.role}</strong>.</p> */}
             <p>This page can be accessed by all authenticated users.</p>
-            <p> Logout</p>
-            {/* <div>
-                Current user from secure api end point:
-                {userFromApi &&
-                    <ul>
-                        <li>{userFromApi.firstName} {userFromApi.lastName}</li>
-                    </ul>
-                }
-            </div> */}
+            <button className="btn btn-default float-right" onClick={LogoutPage}>Signout</button>
+            
         </div>
     );
 }

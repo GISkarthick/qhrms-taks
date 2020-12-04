@@ -16,6 +16,7 @@ axios.defaults.headers.common["Access-Control-Allow-Methods"] =
 
 axios.interceptors.response.use(
   function(response) {
+    // debugger
     // console.log(response, "sdsd");
     let data = response.data;
     if(data.status){
@@ -30,6 +31,8 @@ axios.interceptors.response.use(
     
   },
   function(error) {
+    // console.log(error)
+    // debugger
     if (error.request.status === 403) {
       alert("Token expired")
       history.push('/login')

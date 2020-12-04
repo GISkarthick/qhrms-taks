@@ -11,8 +11,8 @@ import {isEmpty, cloneDeep} from 'lodash'
 import {CONSTANTS} from '../config/Constants';
 
 const initialValue = {
-    email: null,
-    password: null
+    email: '',
+    password: ''
   }
   
   const validations = {
@@ -35,14 +35,13 @@ const initialValue = {
     const [errors, setErrors] = useState({})
 
     const [isForgotPass, setForgotPass] = useState(false)
+    const [isView, setView] = useState(false)
 
-
-    console.log(errors, 'errors')
     const onSubmit = data => {
         authenticationService.login(data).then(
             user => {
-            history.push("/dashboard");
-            window.location.reload(true);
+              history.push("/dashboard");
+              window.location.reload(true);
             },
             error => {
            
@@ -146,13 +145,17 @@ const initialValue = {
                 </InputGroup.Text>
               </InputGroup.Prepend>
               <FormControl
+                type={!isView ? "password" : "text"}
                 id="passwordFormInputGroup"
                 placeholder={CONSTANTS.LOGIN.PASSWORD}
                 className="input_password"
                 value={formValue.password}
                 onChange={handleChange('password')}
               />
-              <i className="fa fa-eye eye-icon" aria-hidden="true"></i>
+              {!isView ?
+                <i className="fa fa-eye eye-icon" aria-hidden="true" onClick={() => setView(true)}></i> : 
+                <i className="fa fa-eye-slash" aria-hidden="true" onClick={() => setView(false)}></i>
+              }
 
               {errors.password && (
                   <p
