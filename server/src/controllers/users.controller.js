@@ -25,7 +25,7 @@ const userController = () => {
 			if (userInput.projectId) {
 				query.projectId = userInput.projectId;
 			}
-			let userData = await userModel.find(query, { password: 0 }).populate('projectId');
+			let userData = await userModel.find(query, { password: 0 });
 			return res.status(httpStatus.OK).json({ status: httpStatus.OK, data: userData, msg: "Success" });
 		} catch (err) {
 			console.log("err--:",err);
